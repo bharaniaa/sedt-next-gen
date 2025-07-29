@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from '@/components/Logo';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,20 +18,15 @@ const Header = () => {
   }, []);
 
   const navigation = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Training Program', href: '#training' },
-    { name: 'RPC Holders', href: '#rpc' },
-    { name: 'DGCA', href: '#dgca' },
-    { name: 'Contact Us', href: '#contact' }
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Training Program', href: '/training' },
+    { name: 'Gallery', href: '/gallery' },
+    { name: 'RPC Holders', href: '/rpc' },
+    { name: 'DGCA', href: '/dgca' },
+    { name: 'Contact Us', href: '/contact' }
   ];
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <>
@@ -70,13 +67,15 @@ const Header = () => {
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-8">
               {navigation.map((item) => (
-                <button
+                <Link
                   key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className="text-foreground hover:text-primary transition-colors font-medium"
+                  to={item.href}
+                  className={`text-foreground hover:text-primary transition-colors font-medium ${
+                    location.pathname === item.href ? 'text-primary font-semibold' : ''
+                  }`}
                 >
                   {item.name}
-                </button>
+                </Link>
               ))}
             </nav>
 
@@ -99,15 +98,17 @@ const Header = () => {
                 <SheetContent side="right" className="w-80">
                   <div className="flex flex-col space-y-6 mt-8">
                     {navigation.map((item) => (
-                      <button
+                      <Link
                         key={item.name}
-                        onClick={() => scrollToSection(item.href)}
-                        className="text-left text-lg font-medium text-foreground hover:text-primary transition-colors"
+                        to={item.href}
+                        className={`text-left text-lg font-medium text-foreground hover:text-primary transition-colors ${
+                          location.pathname === item.href ? 'text-primary font-semibold' : ''
+                        }`}
                       >
                         {item.name}
-                      </button>
+                      </Link>
                     ))}
-                    <Button 
+                    <Button
                       className="gradient-primary hover:opacity-90 transition-opacity mt-4"
                       onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSdn-nYChP2cwu4UBoUvDLw4DjCcmD1INi0miLejTlu3V6zHgw/viewform', '_blank')}
                     >
