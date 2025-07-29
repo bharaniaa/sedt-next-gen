@@ -34,7 +34,23 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center text-white">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in">
             Make Your <br />
-            <span className="text-gradient">Career as Drone Pilot</span>
+            <span
+              className="relative inline-block font-extrabold text-transparent bg-clip-text"
+              style={{
+                background: 'linear-gradient(90deg, #fff 60%, #e0e0e0 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                padding: '0.25em 0.75em',
+                borderRadius: '0.75rem',
+                boxShadow: '0 4px 24px 0 rgba(0,0,0,0.10)',
+                backgroundColor: 'rgba(255,255,255,0.85)',
+                color: '#1a202c',
+                textShadow: '0 2px 8px rgba(0,0,0,0.10)',
+                letterSpacing: '0.01em',
+              }}
+            >
+              Career as Drone Pilot
+            </span>
           </h1>
           
           <p className="text-xl md:text-2xl mb-8 opacity-90 max-w-2xl mx-auto animate-slide-up">
