@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import heroImage from '@/assets/hero-building.jpg';
 import { Phone, MessageCircle } from 'lucide-react';
-
+import dronetech from '/dronetech.png';
 const Hero = () => {
   const handleEnrollClick = () => {
     window.open('https://docs.google.com/forms/d/e/1FAIpQLSdn-nYChP2cwu4UBoUvDLw4DjCcmD1INi0miLejTlu3V6zHgw/viewform', '_blank');
@@ -24,7 +24,7 @@ const Hero = () => {
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
+        style={{ backgroundImage: `url(${dronetech})` }}
       >
         <div className="absolute inset-0 gradient-hero opacity-80"></div>
       </div>

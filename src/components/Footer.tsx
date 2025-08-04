@@ -1,6 +1,7 @@
+
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Phone, Mail, MapPin, ArrowUp } from 'lucide-react';
+import { Phone, Mail, MapPin, Instagram, Twitter, ArrowUp } from "lucide-react";
 import Logo from '@/components/Logo';
 
 const Footer = () => {
@@ -28,11 +29,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="text-background">
-              <Logo className="h-12" />
-            </div>
+            <Logo className="h-12" />
             <p className="text-background/80 leading-relaxed">
-              Premier drone technology and training organization dedicated to transforming 
+              Premier drone technology and training organization dedicated to transforming
               industries with cutting-edge drone solutions.
             </p>
             <div className="flex items-center space-x-2">
@@ -61,17 +60,46 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-xl font-semibold">Contact Info</h3>
             <div className="space-y-3">
-              <a href="tel:+917418245899" className="flex items-center space-x-3 text-background/80 hover:text-background transition-colors">
+              <a
+                href="tel:+917418245899"
+                className="flex items-center space-x-3 text-background/80 hover:text-background transition-colors"
+              >
                 <Phone className="h-4 w-4" />
                 <span>+91 74182 45899</span>
               </a>
-              <a href="mailto:dronetech@sece.ac.in" className="flex items-center space-x-3 text-background/80 hover:text-background transition-colors">
+              <a
+                href="mailto:dronetech@sece.ac.in"
+                className="flex items-center space-x-3 text-background/80 hover:text-background transition-colors"
+              >
                 <Mail className="h-4 w-4" />
                 <span>dronetech@sece.ac.in</span>
               </a>
               <div className="flex items-start space-x-3 text-background/80">
                 <MapPin className="h-4 w-4 mt-0.5" />
-                <span>Kinathukadavu,<br />Coimbatore-641202</span>
+                <span>
+                  Kinathukadavu,<br />
+                  Coimbatore-641202
+                </span>
+              </div>
+
+              {/* Social Media Icons */}
+              <div className=" items-center space-x-4 pt-2">
+                <a
+                  href="https://www.instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-background/80 hover:text-background transition-colors"
+                >
+                  <Instagram className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://www.twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-background/80 hover:text-background transition-colors"
+                >
+                  <Twitter className="h-5 w-5" />
+                </a>
               </div>
             </div>
           </div>

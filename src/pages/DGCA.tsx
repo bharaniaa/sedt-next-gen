@@ -142,7 +142,24 @@ const DGCAPage = () => {
             </div>
           </div>
         </div>
+        {/*  dgca license */}
+        <div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+              DGCA <span className="text-gradient">License</span>
+            </h2>
+            <div className='flex justify-center gap-10 mb-8'>
+              <div>
+             <img src="/dgca_license_1.png" alt="DGCA License" className="mx-auto mb-6 rounded-lg shadow-lg "
+             height={500} width={500} />
 
+              </div>
+              <div>
+             <img src="/dgca_license_2.png" alt="DGCA License" className="mx-auto mb-6 rounded-lg shadow-lg"
+              height={500} width={500} />
+
+              </div>
+            </div>
+        </div>
         {/* Drone Categories */}
         <div className="mb-20">
           <div className="text-center mb-12">

@@ -5,6 +5,10 @@ import {
   Phone, 
   Mail, 
   MapPin, 
+<<<<<<< HEAD
+  
+=======
+>>>>>>> da4fd9e769858f05d20630ddf8b57060746feead
   Clock,
   MessageCircle
 } from 'lucide-react';

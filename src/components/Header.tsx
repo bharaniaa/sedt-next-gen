@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Phone, Mail, MapPin, Menu, X } from 'lucide-react';
+import { Phone, Mail, MapPin, Menu, X ,Instagram, Twitter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Link, useLocation } from 'react-router-dom';
@@ -37,6 +37,21 @@ const Header = () => {
             <span className="font-semibold">Upcoming batch: June-11, 16 2025</span>
           </div>
           <div className="flex flex-wrap items-center gap-4">
+              <a href="https://www.instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-background/80 hover:text-background transition-colors"
+                >
+                  <Instagram className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://www.twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-background/80 hover:text-background transition-colors"
+                >
+                  <Twitter className="h-5 w-5" />
+                </a>
             <a href="tel:+917418245899" className="flex items-center gap-1 hover:text-primary-foreground/80 transition-colors">
               <Phone className="h-3 w-3" />
               +91 74182 45899
