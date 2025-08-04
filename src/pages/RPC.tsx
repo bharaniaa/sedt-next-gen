@@ -525,7 +525,7 @@ const RPCPage = () => {
               </Button>
             </div>
             <p className="text-sm opacity-75 mt-4">
-              Next batch starts: June-11, 16 2025
+              Next batch starts: June-14, 16 2025
             </p>
           </Card>
         </div>
