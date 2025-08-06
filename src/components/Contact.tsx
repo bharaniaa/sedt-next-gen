@@ -8,6 +8,8 @@ import {
   Clock,
   MessageCircle
 } from 'lucide-react';
+import { useState } from 'react';
+import { submitContact } from '@/lib/api';
 
 const Contact = () => {
   const contactInfo = [
@@ -47,6 +49,32 @@ const Contact = () => {
     window.open('https://docs.google.com/forms/d/e/1FAIpQLSdn-nYChP2cwu4UBoUvDLw4DjCcmD1INi0miLejTlu3V6zHgw/viewform', '_blank');
   };
 
+  // Contact form state
+  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    setSuccess(false);
+    try {
+      await submitContact(form);
+      setSuccess(true);
+      setForm({ name: '', email: '', phone: '', message: '' });
+    } catch (err) {
+      setError('Failed to send message. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
@@ -64,25 +92,53 @@ const Contact = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
+          {/* Contact Form */}
           <div className="space-y-8">
-            <div className="space-y-6">
-              {contactInfo.map((info, index) => (
-                <Card key={index} className="p-6 hover-lift transition-smooth cursor-pointer group" onClick={() => handleQuickContact(info.action)}>
-                  <div className="flex items-start space-x-4">
-                    <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                      <info.icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold mb-2">{info.title}</h3>
-                      {info.details.map((detail, idx) => (
-                        <p key={idx} className="text-muted-foreground mb-1">{detail}</p>
-                      ))}
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </div>
+            <Card className="p-8">
+              <h3 className="text-2xl font-bold mb-6">Send us a message</h3>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <input
+                  className="w-full p-3 rounded border border-muted focus:outline-none focus:ring-2 focus:ring-primary"
+                  name="name"
+                  type="text"
+                  placeholder="Your Name"
+                  value={form.name}
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  className="w-full p-3 rounded border border-muted focus:outline-none focus:ring-2 focus:ring-primary"
+                  name="email"
+                  type="email"
+                  placeholder="Your Email"
+                  value={form.email}
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  className="w-full p-3 rounded border border-muted focus:outline-none focus:ring-2 focus:ring-primary"
+                  name="phone"
+                  type="tel"
+                  placeholder="Your Phone (optional)"
+                  value={form.phone}
+                  onChange={handleChange}
+                />
+                <textarea
+                  className="w-full p-3 rounded border border-muted focus:outline-none focus:ring-2 focus:ring-primary"
+                  name="message"
+                  placeholder="Your Message"
+                  value={form.message}
+                  onChange={handleChange}
+                  required
+                  rows={4}
+                />
+                <Button type="submit" className="w-full" disabled={loading}>
+                  {loading ? 'Sending...' : 'Send Message'}
+                </Button>
+                {success && <p className="text-green-600 mt-2">Message sent successfully!</p>}
+                {error && <p className="text-red-600 mt-2">{error}</p>}
+              </form>
+            </Card>
 
             {/* Quick Response Promise */}
             <Card className="p-6 gradient-primary text-primary-foreground">
