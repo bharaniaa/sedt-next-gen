@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import heroImage from '@/assets/hero-building.jpg';
+
+const dronetech = '/dronetech.png'; 
 import { Phone, MessageCircle } from 'lucide-react';
 
 const Hero = () => {
@@ -24,7 +25,7 @@ const Hero = () => {
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
+        style={{ backgroundImage: `url(${dronetech})` }}
       >
         <div className="absolute inset-0 gradient-hero opacity-80"></div>
       </div>
