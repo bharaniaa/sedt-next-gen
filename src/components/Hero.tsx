@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/card';
 
 const dronetech = '/dronetech.png'; 
 import { Phone, MessageCircle } from 'lucide-react';
+import Marquee from './ui/Marquee';
 
 const Hero = () => {
   const handleEnrollClick = () => {
@@ -91,7 +92,9 @@ const Hero = () => {
               <div className="text-sm opacity-90">Small Category Drones</div>
             </Card>
           </div>
+          <Marquee/>
         </div>
+        
       </div>
 
       {/* WhatsApp Float Button */}
