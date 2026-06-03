@@ -73,6 +73,29 @@ const TrainingPage = () => {
       title: "Practical Flight Training",
       duration: "20 Hours",
       topics: ["Manual Flying", "Autonomous Modes", "Precision Landing", "Real-world Scenarios"]
+    },
+    {
+      title: "Day 3 - TheoryTest & Simulator Test",
+      duration: "Day 3",
+      topics: [
+        "Final Test",
+        "Introduction to Flight Simulator",
+        "Sim familiarization, Controls check",
+        "Pre-flight checks, Take-off, Cruise",
+        "Approach. Go-around & Landing, Post-Flight Checks",
+        "Cruise and Turns, Climbing and Climbing Turns",
+        "Descend & Descending Turns",
+        "Disorientation & Recovery",
+        "Circuit Flying - Rectangle/ Square/ Circle / Orbit, Flying - Figure of 8",
+        "Gimbal Controls (Pan, tilt & zoom)",
+        "Night Flying",
+        "Abnormal / Emergency Procedures",
+        "Simulator Test",
+        "Basic Assembly & Maintenance",
+        "Air Exercise",
+        "Intro to Digital Sky platform",
+        "RPAS familiarization & Safety briefing"
+      ]
     }
   ];
 
